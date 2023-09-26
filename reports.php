@@ -100,22 +100,23 @@
                       else{
                         $status = '<span class="label label-success">available</span>';
                       }
-                      echo "
+                      // echo " 
+                      ?>
                         <tr>
-                          <td>".$row['name']."</td>
-                          <td>".$row['isbn']."</td>
-                          <td>".$row['filename']."</td>
-                          <td>".$row['description']."</td>
-                          <td>".$row['publisher']."</td>
-                          <td>".$status."</td>
-                          <td>
-                          
-                          <button class='btn btn-info btn-sm download btn-flat' data-id='".$row['bookid']."'><i class='glyphicon glyphicon-download'></i> Download</button>
+                          <td><?php echo $row['name']?></td>
+                          <td><?php echo $row['isbn']?></td>
+                          <td><?php echo $row['filename']?></td>
+                          <td><?php echo $row['description']?></td>
+                          <td><?php echo $row['publisher']?></td>
+                          <td><?php echo $status ?></td>
+                          <td><a href="download.php?reportid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a>                         
                           </td>
                         </tr>
-                      ";
+                        <?php
+                     
                     }
 
+                 
                     
                   ?>
                 </tbody>
