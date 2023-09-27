@@ -19,8 +19,8 @@
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-            	<button type="submit" class="btn btn-success btn-flat" name="downloading"><i class="glyphicon glyphicon-download"></i> Yes </button>
-              <a href="download.php?bookid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a> 
+            	<button type="submit" class="btn btn-success btn-flat" name="download"><i class="glyphicon glyphicon-download"></i> Yes </button>
+              <!-- <a href="download.php?bookid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a>  -->
             </form>
           	</div>
         </div>

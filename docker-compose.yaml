@@ -1,14 +1,21 @@
+version: "2"
 services:
-  # nginx
-      web:
-          image: nginx:latest
-          ports:
-            - "80:80"
-      app:
-          build:
-                dockerfile: ./php/Dockerfile
-  # php
+  webserver:
+    image: kmproject
+    ports:
+      - "80:80"
+      - "443:443"
+    # volumes:
+    #   - ./app:/var/www/html
+    environment:
+      MYSQL_DB_CONNECTION: test
+      MYSQL_DB_NAME: libsystem
+      MYSQL_USER: root 
+      MYSQL_PASSWORD: 
+      SITE_URL: http://localhost
+    networks:
+      - test
 
-  # mysql
-
-  #redis 
+networks:
+  test:
+    external: true

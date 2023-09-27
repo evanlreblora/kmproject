@@ -16,7 +16,7 @@
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Transaction</li>
-        <li class="active">Borrow</li>
+        <li class="active">Downloaded Reports</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -56,7 +56,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Borrow</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> download</a>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -75,10 +75,10 @@
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       if($row['barstat']){
-                        $status = '<span class="label label-success">returned</span>';
+                        $status = '<span class="label label-success">available</span>';
                       }
                       else{
-                        $status = '<span class="label label-danger">not returned</span>';
+                        $status = '<span class="label label-info">downloaded</span>';
                       }
                       echo "
                         <tr>
@@ -87,7 +87,7 @@
                           <td>".$row['stud']."</td>
                           <td>".$row['firstname'].' '.$row['lastname']."</td>
                           <td>".$row['isbn']."</td>
-                          <td>".$row['title']."</td>
+                          <td>".$row['filename']."</td>
                           <td>".$status."</td>
                         </tr>
                       ";
@@ -103,7 +103,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/borrow_modal.php'; ?>
+  <?php include 'includes/download_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>

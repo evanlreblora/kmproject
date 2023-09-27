@@ -82,7 +82,7 @@
               <form class="form-horizontal" method="POST" action="organisation_delete.php">
                 <input type="hidden" class="corid" name="id">
                 <div class="text-center">
-                    <p>DELETE BOOK</p>
+                    <p>DELETE ORGANISATION?</p>
                     <h2 id="del_code" class="bold"></h2>
                 </div>
             </div>

@@ -95,7 +95,7 @@
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       if($row['status']){
-                        $status = '<span class="label label-danger">borrowed</span>';
+                        $status = '<span class="label label-info">downloaded</span>';
                       }
                       else{
                         $status = '<span class="label label-success">available</span>';
@@ -175,6 +175,8 @@ function getRow(id){
       $('#edit_publisher').val(response.publisher);
       $('#date_uploaded').val(response.date_uploaded);
       $('#edit_file').val(response.file);
+      $('#del_id').html(response.bookid);
+      $('#del_file').html(response.file);
       $('#del_report').html(response.filename);
       $('#del_cat').html(response.name);
     }
