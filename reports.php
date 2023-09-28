@@ -13,7 +13,7 @@
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
- 
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -109,7 +109,7 @@
                           <td><?php echo $row['description']?></td>
                           <td><?php echo $row['publisher']?></td>
                           <td><?php echo $status ?></td>
-                          <td><a href="download.php?reportid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a>                         
+                          <td><a href="download.php?bookid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a>                         
                           </td>
                         </tr>
                         <?php

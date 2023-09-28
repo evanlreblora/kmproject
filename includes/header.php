@@ -31,7 +31,7 @@
 
   	<style>
   		.dataTables_filter {
-			display: none; 
+			display: block; 
 		}
   	</style>		
 </head>
