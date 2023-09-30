@@ -10,10 +10,17 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="login.php">
                 <div class="form-group">
-                    <label for="student" class="col-sm-3 control-label">User ID</label>
+                    <label for="email" class="col-sm-3 control-label">Email Address</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="student" name="student" required>
+                      <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                 </div>
             </div>

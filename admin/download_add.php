@@ -10,7 +10,7 @@
 			if(!isset($_SESSION['error'])){
 				$_SESSION['error'] = array();
 			}
-			$_SESSION['error'][] = 'Student not found';
+			$_SESSION['error'][] = 'User not found';
 		}
 		else{
 			$row = $query->fetch_assoc();
@@ -43,15 +43,15 @@
 						if(!isset($_SESSION['error'])){
 							$_SESSION['error'] = array();
 						}
-						$_SESSION['error'][] = 'Book with ISBN - '.$isbn.' unavailable';
+						$_SESSION['error'][] = 'Reports with ISBN - '.$isbn.' unavailable';
 					}
 		
 				}
 			}
 
 			if($added > 0){
-				$book = ($added == 1) ? 'Book' : 'Books';
-				$_SESSION['success'] = $added.' '.$book.' successfully borrowed';
+				$book = ($added == 1) ? 'Report' : 'Reports';
+				$_SESSION['success'] = $added.' '.$book.' successfully Downloaded';
 			}
 
 		}

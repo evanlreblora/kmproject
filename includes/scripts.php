@@ -44,7 +44,7 @@ $(function(){
   	var bookTable = $('#booklist').DataTable({
       'paging'      : true,
       'lengthChange': false,
-      'searching'   : true,
+      'searching'   : false,
       'ordering'    : true,
       'info'        : false,
       'autoWidth'   : false

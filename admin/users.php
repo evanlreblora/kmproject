@@ -54,7 +54,7 @@
                 <thead>
                   <th>Organisation</th>
                   <th>Photo</th>
-                  <th>User ID</th>
+                  <th>Email</th>
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Tools</th>
@@ -72,7 +72,7 @@
                             <img src='".$photo."' width='30px' height='30px'>
                             <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['studid']."'><span class='fa fa-edit'></span></a>
                           </td>
-                          <td>".$row['student_id']."</td>
+                          <td>".$row['email']."</td>
                           <td>".$row['firstname']."</td>
                           <td>".$row['lastname']."</td>
                           <td>

@@ -2,8 +2,11 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['login'])){
-		$student = $_POST['student'];
-		$sql = "SELECT * FROM students WHERE student_id = '$student'";
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+
+		$sql = "SELECT * FROM students WHERE email = '$email'";
 		$query = $conn->query($sql);
 		if($query->num_rows > 0){
 			$row = $query->fetch_assoc();
@@ -11,13 +14,13 @@
 			header('location: reports.php');
 		}
 		else{
-			$_SESSION['error'] = 'Student not found';
+			$_SESSION['error'] = 'Email not found';
 			header('location: index.php');
 		}
 
 	}
 	else{
-		$_SESSION['error'] = 'Enter student id first';
+		$_SESSION['error'] = 'Enter Email add first';
 		header('location: index.php');
 	}
 

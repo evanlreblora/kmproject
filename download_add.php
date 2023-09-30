@@ -43,7 +43,7 @@
 						if(!isset($_SESSION['error'])){
 							$_SESSION['error'] = array();
 						}
-						$_SESSION['error'][] = 'Book with ISBN - '.$isbn.' unavailable';
+						$_SESSION['error'][] = 'Report with ISBN - '.$isbn.' unavailable';
 					}
 		
 				}
@@ -60,6 +60,6 @@
 		$_SESSION['error'] = 'Fill up add form first';
 	}
 
-	header('location: borrow.php');
+	header('location: download.php');
 
 ?>

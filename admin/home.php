@@ -69,7 +69,7 @@
             <div class="icon">
               <i class="fa fa-book"></i>
             </div>
-            <a href="book.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="reports.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -89,7 +89,7 @@
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="user.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="users.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -98,18 +98,18 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM returns WHERE date_return = '$today'";
+                $sql = "SELECT * FROM books WHERE date_uploaded = '$today'";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
              
-              <p>Returned Today</p>
+              <p>Uploaded Today</p>
             </div>
             <div class="icon">
-              <i class="fa fa-mail-reply"></i>
+              <i class="glyphicon glyphicon-upload"></i>
             </div>
-            <a href="return.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="reports.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -118,18 +118,18 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM borrow WHERE date_borrow = '$today'";
+                $sql = "SELECT * FROM books WHERE date_uploaded = '$today'";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
 
-              <p>Borrowed Today</p>
+              <p>Downloaded Today</p>
             </div>
             <div class="icon">
-              <i class="fa fa-mail-forward"></i>
+              <i class="glyphicon glyphicon-download"></i>
             </div>
-            <a href="borrow.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="download.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -212,7 +212,7 @@ $(function(){
     labels  : <?php echo $months; ?>,
     datasets: [
       {
-        label               : 'Borrow',
+        label               : 'Download',
         fillColor           : 'rgba(210, 214, 222, 1)',
         strokeColor         : 'rgba(210, 214, 222, 1)',
         pointColor          : 'rgba(210, 214, 222, 1)',
@@ -222,7 +222,7 @@ $(function(){
         data                : <?php echo $borrow; ?>
       },
       {
-        label               : 'Return',
+        label               : 'Upload',
         fillColor           : 'rgba(60,141,188,0.9)',
         strokeColor         : 'rgba(60,141,188,0.8)',
         pointColor          : '#3b8bba',
