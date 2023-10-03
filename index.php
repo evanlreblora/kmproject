@@ -18,7 +18,7 @@
 
 			<div  id="app"class="flex-center position-ref full-height">
                 <div style="text-align: center;" class="content">
-                    <img class="img-fluid" src="images/logo/ACBLogo.png" width="350" height="100">
+                    <img class="img-fluid" src="images/logo/acblogo_orig.png" width="350" height="100">
 					<img class="img-fluid" src="images/logo/ASEAN.png" width="100" height="100">
                     <div class="title m-b-md">
                         <strong><h1>Knowledge Management Platform</h1></strong>
