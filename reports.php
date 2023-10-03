@@ -1,4 +1,7 @@
-<?php include 'includes/session.php'; ?>
+<?php include 'includes/session.php'; 
+
+ ?>
+
 <?php
   $catid = 0;
   $where = '';

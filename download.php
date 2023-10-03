@@ -1,26 +1,27 @@
 <?php include 'includes/session.php'; 
 
-
-session_start();
 $r=session_id();
-
+ 
+print_r ($_SESSION);
 /* SOME PIECE OF CODE TO AUTHENTICATE THE USER, MOSTLY SQL QUERY... */
 
 /* now registering a session for an authenticated user */
-$username = $_SESSION['username'];
-// $student_id = $_SESSION['student_id'];
+
+
 
 /* now displaying the session id..... */
 echo "the session id id: ".$r;
-echo " and the session has been registered for: ".$_SESSION['username'];
+ 
+echo " and the session has been registered for: ".$_SESSION['student'];
  ?>
+ 
 <?php
  session_start(); 
  print_r ($_SESSION);
- echo "<p>";
+ $student_id = $_SESSION['student'];
 
  //echo a single entry from the array
- echo $_SESSION['username'][2];
+
  
 	if(ISSET($_REQUEST['bookid'])){
 		$bookid = $_REQUEST['bookid'];
@@ -40,9 +41,7 @@ echo " and the session has been registered for: ".$_SESSION['username'];
 		   else{
 			   $_SESSION['error'] = $conn->error;
 		   }
-		   
-   
- 
+		
 	 
 		header("Content-Disposition: attachment; filename=".$filename);
 		header("Content-Type: application/octet-stream;");
