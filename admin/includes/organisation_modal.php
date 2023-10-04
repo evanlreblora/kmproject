@@ -8,7 +8,7 @@
               <h4 class="modal-title"><b>Add New Organisation</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="course_add.php">
+              <form class="form-horizontal" method="POST" action="organisation_add.php">
                 <div class="form-group">
                     <label for="code" class="col-sm-3 control-label">Code</label>
 

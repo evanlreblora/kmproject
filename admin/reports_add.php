@@ -25,6 +25,7 @@
 		$file_type = $_FILES['fileName2']['type'];
 		$tempName = $_FILES['fileName2']['tmp_name'];
 		$date_uploaded = date("Y-m-d");
+		$status = 0;
 
 		$errors = array();
 
@@ -43,7 +44,7 @@
 		}
 
 	if (count($errors)==0) {
-		 $sql = "INSERT INTO books (isbn, category_id, filename, description, publisher, file, file_type, date_uploaded) VALUES ('$isbn', '$category', '$filename', '$description', '$publisher','$fileName1','$file_type', '$date_uploaded')";
+		 $sql = "INSERT INTO books (isbn, category_id, filename, description, publisher, file, file_type, date_uploaded,status) VALUES ('$isbn', '$category', '$filename', '$description', '$publisher','$fileName1','$file_type', '$date_uploaded', '$status')";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Report added successfully';
 		}
