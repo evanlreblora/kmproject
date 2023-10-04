@@ -1,7 +1,7 @@
 <?php include 'includes/session.php'; ?>
 <?php 
   include 'includes/timezone.php'; 
-  $today = date('Y-m-d');
+  $today = date("Y-m-d");
   $year = date('Y');
   if(isset($_GET['year'])){
     $year = $_GET['year'];
@@ -118,7 +118,7 @@
           <div class="small-box bg-red">
             <div class="inner">
               <?php
-                $sql = "SELECT * FROM books WHERE date_uploaded = '$today'";
+                $sql = "SELECT * FROM borrow WHERE date_borrow = '$today'";
                 $query = $conn->query($sql);
 
                 echo "<h3>".$query->num_rows."</h3>";
@@ -184,7 +184,7 @@
   $return = array();
   $borrow = array();
   for( $m = 1; $m <= 12; $m++ ) {
-    $sql = "SELECT * FROM returns WHERE MONTH(date_return) = '$m' AND YEAR(date_return) = '$year'";
+    $sql = "SELECT * FROM books WHERE MONTH(date_uploaded) = '$m' AND YEAR(date_uploaded) = '$year'";
     $rquery = $conn->query($sql);
     array_push($return, $rquery->num_rows);
 

@@ -24,7 +24,7 @@
 		$fileName1 = $_FILES['fileName2']['name'];
 		$file_type = $_FILES['fileName2']['type'];
 		$tempName = $_FILES['fileName2']['tmp_name'];
-		$date_uploaded = date("Y-m-d, h:i A");
+		$date_uploaded = date("Y-m-d");
 
 		$errors = array();
 
