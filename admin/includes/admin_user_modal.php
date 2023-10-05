@@ -56,6 +56,24 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="course" class="col-sm-3 control-label">Level</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="restriction" name="restriction" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM restriction";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_array()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['levelname']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>
 
                     <div class="col-sm-9">

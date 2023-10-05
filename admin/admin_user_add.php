@@ -7,6 +7,7 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$course = $_POST['course'];
+		$levelid = 1;
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
 			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
@@ -23,7 +24,7 @@
 		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		$password = password_hash($password, PASSWORD_DEFAULT);
 		//
-		$sql = "INSERT INTO admin (id, username, password, firstname, lastname, photo, organisation_id,created_on) VALUES ('$id','$username','$password', '$firstname', '$lastname','$filename', '$course',  NOW())";
+		$sql = "INSERT INTO admin (id, username, password, firstname, lastname, photo, organisation_id, level_id,created_on) VALUES ('$id','$username','$password', '$firstname', '$lastname','$filename', '$course', '$levelid',  NOW())";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Student added successfully';
 		}
