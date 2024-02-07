@@ -2,15 +2,15 @@
 	include 'includes/session.php';
 
 	if(isset($_POST['add'])){
-		$username = $_POST['username'];
+		$emai = $_POST['email'];
 		$password = $_POST['password'];
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$course = $_POST['course'];
-		$levelid = '1';
 		$filename = $_FILES['photo']['name'];
+		$tempName = $_FILES['photo']['tmp_name'];
 		if(!empty($filename)){
-			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
+			move_uploaded_file($tempName, '../images/'.$filename);	
 		}
 		//creating studentid
 		$letters = '';
@@ -21,12 +21,14 @@
 		for($i = 0; $i < 10; $i++){
 			$numbers .= $i;
 		}
-		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		$password = password_hash($password, PASSWORD_DEFAULT);
+		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
+		$level_id = 2;
 		//
-		$sql = "INSERT INTO admin (id, username, password, firstname, lastname, photo, organisation_id, level_id,created_on) VALUES ('$id','$username','$password', '$firstname', '$lastname','$filename', '$course', '$levelid',  NOW())";
+
+		$sql = "INSERT INTO students (email,password,student_id, firstname, lastname, course_id, level_id, photo, created_on) VALUES ('$emai','$password','$student_id', '$firstname', '$lastname', '$course', '$level_id','$filename', NOW())";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Student added successfully';
+			$_SESSION['success'] = 'User added successfully';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
@@ -37,5 +39,5 @@
 		$_SESSION['error'] = 'Fill up add form first';
 	}
 
-	header('location: admin_user.php');
+	header('location: users.php');
 ?>

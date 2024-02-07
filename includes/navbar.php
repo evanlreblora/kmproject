@@ -3,7 +3,7 @@
   <!-- Logo -->
   <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <img class="img-fluid" src="images/logo/ACBLogo.png" width="150" height="40">
+    <img class="img-fluid" src="images/logo/acblogo_orig.png" width="150" height="40">
 		<img class="img-fluid" src="images/logo/ASEAN.png" width="40" height="40">
  
     <!-- logo for regular state and mobile devices -->

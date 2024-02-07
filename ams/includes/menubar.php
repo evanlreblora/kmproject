@@ -39,7 +39,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="reports.php"><i class="fa fa-circle-o"></i> Reports List</a></li>
-          <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li>
+          <!-- <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li> -->
         </ul>
       </li>
       <li class="treeview">
@@ -65,10 +65,7 @@
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
-        <ul class="treeview-menu">
-          <li><a href="admin_user.php"><i class="fa fa-circle-o"></i> Admin List</a></li>
-          <!-- <li><a href="course.php"><i class="fa fa-circle-o"></i> Organisation</a></li> -->
-        </ul>
+
       </li>
     </ul>
   </section>

@@ -82,7 +82,7 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th>Category</th>
-                  <th>ISBN</th>
+                  <!-- <th>ISBN</th> -->
                   <th>Filename</th>
                   <th>Description</th>
                   <th>Publisher</th>
@@ -103,12 +103,13 @@
                       echo "
                         <tr>
                           <td>".$row['name']."</td>
-                          <td>".$row['isbn']."</td>
+                         
                           <td>".$row['filename']."</td>
                           <td>".$row['description']."</td>
                           <td>".$row['publisher']."</td>
                           <td>".$status."</td>
                           <td>
+                            <button class='btn btn-info btn-sm view btn-flat' data-id='".$row['bookid']."'><i class='fa fa-eye'></i> View</button>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['bookid']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['bookid']."'><i class='fa fa-trash'></i> Delete</button>
                           </td>
@@ -143,9 +144,19 @@ $(function(){
     }
   });
 
+
+
+
   $(document).on('click', '.edit', function(e){
     e.preventDefault();
     $('#edit').modal('show');
+    var id = $(this).data('id');
+    getRow(id);
+  });
+
+  $(document).on('click', '.view', function(e){
+    e.preventDefault();
+    $('#view').modal('show');
     var id = $(this).data('id');
     getRow(id);
   });
@@ -170,6 +181,7 @@ function getRow(id){
       $('#edit_filename').val(response.filename);
       $('#catselect').val(response.category_id).html(response.name);
       $('#edit_description').val(response.description);
+      $('#link').val(response.link);
       $('#edit_publisher').val(response.publisher);
       $('#date_uploaded').val(response.date_uploaded);
       $('#edit_file').val(response.file);

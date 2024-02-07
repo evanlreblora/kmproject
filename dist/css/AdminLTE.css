@@ -3391,10 +3391,13 @@ table.text-center th {
 .login-logo a,
 .register-logo a {
   color: #444;
+  
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  /* background: #d2d6de; */
+  background: url('../img/monkey.jpeg') auto fixed;
+  background-size: auto;
 }
 .login-box,
 .register-box {

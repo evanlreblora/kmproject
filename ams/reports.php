@@ -1,7 +1,4 @@
-<?php include 'includes/session.php'; 
-
- ?>
-
+<?php include 'includes/session.php'; ?>
 <?php
   $catid = 0;
   $where = '';
@@ -12,11 +9,11 @@
 
 ?>
 <?php include 'includes/header.php'; ?>
-<body class="control-sidebar-slide-open layout-fixed sidebar-collapse skin-blue">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <?php include 'includes/navbar.php'; ?>
-
+  <?php include 'includes/menubar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -59,7 +56,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus" ></i> Download Report File</a>
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
               <div class="box-tools pull-right">
                 <form class="form-inline">
                   <div class="form-group">
@@ -85,7 +82,7 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th>Category</th>
-                  <th>ISBN</th>
+                  <!-- <th>ISBN</th> -->
                   <th>Filename</th>
                   <th>Description</th>
                   <th>Publisher</th>
@@ -98,29 +95,28 @@
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       if($row['status']){
-                        $status = '<span class="label label-info">downloaded</span>';
+                        $status = '<span class="label label-info">downloaded </span>';
                       }
                       else{
                         $status = '<span class="label label-success">available</span>';
                       }
-                      // echo " 
-                      ?>
+                      echo "
                         <tr>
-                          <td><?php echo $row['name']?></td>
-                          <td><?php echo $row['isbn']?></td>
-                          <td><?php echo $row['filename']?></td>
-                          <td><?php echo $row['description']?></td>
-                          <td><?php echo $row['publisher']?></td>
-                          <td><?php echo $status ?></td>
-                          <td> <button class='btn btn-info btn-sm view btn-flat' data-id='".$row['bookid']."'><i class='fa fa-edit'></i> View</button>
-                          <td><a href="download.php?bookid=<?php echo $row['bookid']?>" class="btn btn-success"><span class="glyphicon glyphicon-download"></span> Download</a>                         
+                          <td>".$row['name']."</td>
+                         
+                          <td>".$row['filename']."</td>
+                          <td>".$row['description']."</td>
+                          <td>".$row['publisher']."</td>
+                          <td>".$status."</td>
+                          <td>
+                           
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['bookid']."'><i class='fa fa-edit'></i> View</button>
+                            
                           </td>
                         </tr>
-                        <?php
-                     
+                      ";
                     }
 
-                 
                     
                   ?>
                 </tbody>
@@ -133,8 +129,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/downloadreports_modal.php'; ?>
- 
+  <?php include 'includes/reports_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -149,12 +144,8 @@ $(function(){
     }
   });
 
-  $(document).on('click', '.view', function(e){
-    e.preventDefault();
-    $('#view').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
+
+
 
   $(document).on('click', '.edit', function(e){
     e.preventDefault();
@@ -163,9 +154,16 @@ $(function(){
     getRow(id);
   });
 
-  $(document).on('click', '.download', function(e){
+  $(document).on('click', '.view', function(e){
     e.preventDefault();
-    $('#download').modal('show');
+    $('#view').modal('show');
+    var id = $(this).data('id');
+    getRow(id);
+  });
+
+  $(document).on('click', '.delete', function(e){
+    e.preventDefault();
+    $('#delete').modal('show');
     var id = $(this).data('id');
     getRow(id);
   });
@@ -183,13 +181,11 @@ function getRow(id){
       $('#edit_filename').val(response.filename);
       $('#catselect').val(response.category_id).html(response.name);
       $('#edit_description').val(response.description);
+      $('#link').val(response.link);
       $('#edit_publisher').val(response.publisher);
       $('#date_uploaded').val(response.date_uploaded);
       $('#edit_file').val(response.file);
-      $('#del_id').html(response.bookid);
-      $('#del_file').html(response.file);
       $('#del_report').html(response.filename);
-      $('#del_cat').html(response.name);
     }
   });
 }
