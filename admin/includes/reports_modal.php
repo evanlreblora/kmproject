@@ -78,10 +78,12 @@
 
                     <div class="col-sm-9">
                     <input type="file" name="fileName2" size="5" style="background-color:#fff;"  />
-
-                    </div>
-                    
+                      </br>
+                    <input class="form-check-input" type="checkbox" id="restricted" name="restricted" value="1">
+                     <label class="form-check-label">Restricted</label>
+                    </div>                   
                 </div>
+                
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
@@ -148,7 +150,7 @@
                     <label for="description" class="col-sm-3 control-label">Link</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="link" name="link">
+                      <input type="text" class="form-control" id="edit_link" name="link">
                     </div>
                 </div>
                 <div class="form-group">
@@ -223,76 +225,12 @@
             	<h4 class="modal-title"><b>View Report</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="reports_edit.php">
-            		<input type="hidden" class="bookid" name="id">
-                <div class="form-group">
-                    <label for="edit_isbn" class="col-sm-3 control-label">ISBN</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_isbn" name="isbn" disabled>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="category" class="col-sm-3 control-label">Category</label>
-
-                    <div class="col-sm-9">
-                      <select class="form-control" name="category" id="category">
-                        <option value="" selected id="catselect"></option>
-                        <?php
-                          $sql = "SELECT * FROM category";
-                          $query = $conn->query($sql);
-                          while($crow = $query->fetch_assoc()){
-                            echo "
-                              <option value='".$crow['id']."'>".$crow['name']."</option>
-                            ";
-                          }
-                        ?>
-                      </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="filename" class="col-sm-3 control-label">Filename</label>
-
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="filename" id="edit_filename" ></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="edit_author" class="col-sm-3 control-label">Description</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_description" name="description">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Link</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="link" name="link">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="edit_publisher" class="col-sm-3 control-label">Publisher</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_publisher" name="publisher" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="date_uploaded" class="col-sm-3 control-label">Date uploaded</label>
-
-                    <div class="col-sm-9">
-                      <div class="date">
-                        <input type="text" class="form-control" id="date_uploaded" name="date_uploaded" >
-                      </div>
-                    </div>
-                </div>
+              <div class = "view_reports_data">
  
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-            	</form>
+
           	</div>
         </div>
     </div>

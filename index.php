@@ -3,7 +3,10 @@
 	$where = '';
 	if(isset($_GET['category'])){
 		$catid = $_GET['category'];
-		$where = 'WHERE category_id = '.$catid;
+		$zero = 0;
+		$restricted = 'OR restricted =' .$zero;
+		$where = 'WHERE category_id = '.$catid.' AND restricted = 0'; 
+		// or restricted = '. $restricted . '
 	}
 ?>
 <?php include 'includes/header.php'; ?>
@@ -78,18 +81,23 @@ and finding solutions to improve processes and synergies.</p>   -->
 				             </div>
 	        				<table class="table table-bordered table-striped" id="booklist">
 			        			<thead>
-			        				<th>ISBN</th>
+			        				<th>Code</th>
 			        				<th>Filename</th>
 			        				<th>Description</th>
 			        				<th>Status</th>
 			        			</thead>
 			        			<tbody>
 			        			<?php
+ 
+			        				// $sql = "SELECT * FROM books WHERE category_id = $catid and restricted = 0 ";
+
 			        				$sql = "SELECT * FROM books $where";
 			        				$query = $conn->query($sql);
+									
 			        				while($row = $query->fetch_assoc()){
 			        					$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
-			        					echo "
+			        					
+										echo "
 			        						<tr>
 			        							
 			        							<td>".$row['isbn']."</td>
@@ -99,6 +107,7 @@ and finding solutions to improve processes and synergies.</p>   -->
 			        						</tr>
 			        					";
 			        				}
+								 
 			        			?>
 			        			</tbody>
 			        		</table>

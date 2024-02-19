@@ -156,9 +156,27 @@ $(function(){
 
   $(document).on('click', '.view', function(e){
     e.preventDefault();
-    $('#view').modal('show');
+    // console.log("hello");
+
     var id = $(this).data('id');
     getRow(id);
+    // console.log( id );
+
+    $.ajax({
+      method: "POST",
+      url: "reports_view.php",
+      data: {
+        'view' : true,
+        'id' : id,
+      },
+      success: function (response) {
+        // console.log(response);
+        $('.view_reports_data').html(response)
+        $('#view').modal('show');
+      }
+
+    });
+
   });
 
   $(document).on('click', '.delete', function(e){
@@ -181,7 +199,7 @@ function getRow(id){
       $('#edit_filename').val(response.filename);
       $('#catselect').val(response.category_id).html(response.name);
       $('#edit_description').val(response.description);
-      $('#link').val(response.link);
+      $('#edit_link').val(response.link);
       $('#edit_publisher').val(response.publisher);
       $('#date_uploaded').val(response.date_uploaded);
       $('#edit_file').val(response.file);

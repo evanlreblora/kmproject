@@ -1,6 +1,6 @@
 <?php
 	include 'includes/session.php';
-
+	 
 
 	if(isset($_POST['add']))
 	{
@@ -26,6 +26,15 @@
 		$file_type = $_FILES['fileName2']['type'];
 		$tempName = $_FILES['fileName2']['tmp_name'];
 		$date_uploaded = date("Y-m-d");
+		
+		
+		// $restricted = $_POST['restricted'];
+		if (empty($_POST['restricted'])) {
+			$restricted = 0;
+		}else {
+			$restricted = 1;
+		}
+		
 		$status = 0;
 
 		$errors = array();
@@ -45,7 +54,7 @@
 		}
 
 	if (count($errors)==0) {
-		 $sql = "INSERT INTO books (isbn, category_id, filename, description, publisher, file, file_type, link, date_uploaded,status) VALUES ('$isbn', '$category', '$filename', '$description', '$publisher','$fileName1','$file_type', '$link', '$date_uploaded', '$status')";
+		 $sql = "INSERT INTO books (isbn, category_id, filename, description, publisher, file, file_type, link, date_uploaded,status,restricted) VALUES ('$isbn', '$category', '$filename', '$description', '$publisher','$fileName1','$file_type', '$link', '$date_uploaded', '$status', $restricted)";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Report added successfully';
 		}

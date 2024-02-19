@@ -85,7 +85,7 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th>Category</th>
-                  <th>ISBN</th>
+                  <th>Code</th>
                   <th>Filename</th>
                   <th>Description</th>
                   <th>Publisher</th>

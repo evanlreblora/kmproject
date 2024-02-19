@@ -148,7 +148,7 @@
                     <label for="description" class="col-sm-3 control-label">Link</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="link" name="link">
+                      <input type="text" class="form-control" id="edit_link" name="link">
                     </div>
                 </div>
                 <div class="form-group">
@@ -223,7 +223,7 @@
             	<h4 class="modal-title"><b>View Report</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="reports_edit.php">
+            	<form class="form-horizontal" method="POST" action="reports_view.php">
             		<input type="hidden" class="bookid" name="id">
                 <div class="form-group">
                     <label for="edit_isbn" class="col-sm-3 control-label">ISBN</label>
