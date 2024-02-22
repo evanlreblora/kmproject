@@ -24,5 +24,5 @@
 		header('location: index.php');
 	}
 
-
+ 
 ?>

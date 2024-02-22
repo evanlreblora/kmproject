@@ -1,4 +1,4 @@
-<?php include 'includes/session.php'; 
+<?php include 'session.php'; 
 
 $r=session_id();
  
@@ -12,19 +12,19 @@ print_r ($_SESSION);
 /* now displaying the session id..... */
 echo "the session id id: ".$r;
  
-echo " and the session has been registered for: ".$_SESSION['student'];
+echo " and the session has been registered for: ".$_SESSION['user'];
  ?>
  
 <?php
  session_start(); 
  print_r ($_SESSION);
- $student_id = $_SESSION['student'];
+ $student_id = $_SESSION['user'];
 
  //echo a single entry from the array
 
  
-	if(ISSET($_REQUEST['bookid'])){
-		$bookid = $_REQUEST['bookid'];
+	if(ISSET($_POST['id'])){
+		$bookid = $_POST['id'];
  
 	
 
@@ -36,7 +36,7 @@ echo " and the session has been registered for: ".$_SESSION['student'];
 		 
 		$sql = "INSERT INTO borrow (student_id, book_id, date_borrow, status) VALUES ('$student_id', '$bookid', NOW(), '$status')";
 		   if($conn->query($sql)){
-			   $_SESSION['success'] = 'Report added successfully';
+			   $_SESSION['success'] = 'Successfully Downloaded Report';
 		   }
 		   else{
 			   $_SESSION['error'] = $conn->error;
@@ -45,7 +45,7 @@ echo " and the session has been registered for: ".$_SESSION['student'];
 	 
 		header("Content-Disposition: attachment; filename=".$filename);
 		header("Content-Type: application/octet-stream;");
-		readfile("files/".$filename);
+		readfile("../../files/".$filename);
 	}
-	header('location: reports.php');z
+	header('location: ../reports.php');z
 ?>

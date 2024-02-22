@@ -202,7 +202,7 @@
             		<input type="hidden" class="bookid" name="id">
             		<div class="text-center">
 	                	<p>DELETE REPORT</p>
-	                	<h2 id="del_book" class="bold"></h2>
+	                	<h2 id="del_report" class="bold"></h2>
 	            	</div>
           	</div>
           	<div class="modal-footer">
@@ -225,12 +225,20 @@
             	<h4 class="modal-title"><b>View Report</b></h4>
           	</div>
           	<div class="modal-body">
-              <div class = "view_reports_data">
+            <div class = "view_reports_data">
  
+           </div>
+           <form class="form-horizontal" method="POST" action="includes/download.php">
+            		<input type="hidden" class="bookid" name="id">
+            		<div class="text-center">
+	                	
+	            	</div>
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-
+            	<button type="submit" class="btn btn-success btn-flat" name="download"><i class="glyphicon glyphicon-download"></i> Download</button>
+            	</form>
+          
           	</div>
         </div>
     </div>

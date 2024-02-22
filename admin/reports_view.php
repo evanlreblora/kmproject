@@ -12,14 +12,14 @@
 			while ($row = mysqli_fetch_array($query)) {
 				
 				echo '
-				<h4>Code: ' .$row['isbn']. '</h4>
-				<h4>Filename: ' .$row['filename']. '</h4>
-				<h4>Category: ' .$row['category_id']. '</h4>
+				<h4><b>Code:</b> ' .$row['isbn']. '</h4>
+				<h4><b>Filename:</b> ' .$row['filename']. '</h4>
+				<h4><b>Category: </b>' .$row['category_id']. '</h4>
 
-				<h4>Description: ' .$row['description']. '</h4>
-				<h4>Publisher: ' .$row['publisher']. '</h4>
-				<h4>Link: ' .$row['link']. '</h4>
-				<h4>Date Uploaded: ' .$row['date_uploaded']. '</h4>
+				<h4><b>Description:</b> ' .$row['description']. '</h4>
+				<h4><b>Publisher:</b> ' .$row['publisher']. '</h4>
+				<h4><b>Link:</b> ' .$row['link']. '</h4>
+				<h4><b>Date Uploaded:</b> ' .$row['date_uploaded']. '</h4>
 				';
 				
 

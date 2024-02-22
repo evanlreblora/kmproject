@@ -85,7 +85,7 @@
                   <!-- <th>ISBN</th> -->
                   <th>Filename</th>
                   <th>Description</th>
-                  <th>Publisher</th>
+                  <th>Encoder</th>
                   <th>Status</th>
                   <th>Action</th>
                 </thead>

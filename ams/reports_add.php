@@ -26,6 +26,7 @@
 		$file_type = $_FILES['fileName2']['type'];
 		$tempName = $_FILES['fileName2']['tmp_name'];
 		$date_uploaded = date("Y-m-d");
+		
 		$status = 0;
 
 		$errors = array();

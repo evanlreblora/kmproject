@@ -35,12 +35,13 @@
                   <th>Date</th>
                   <th>Users ID</th>
                   <th>Name</th>
-                  <th>ISBN</th>
+                  <th>Code</th>
                   <th>Filename</th>
                   <th>Status</th>
                 </thead>
                 <tbody>
                   <?php
+                    // $sql = "SELECT *, admin.id AS stud, borrow.status AS barstat FROM borrow LEFT JOIN admin ON admin.id=borrow.student_id LEFT JOIN books ON books.id=borrow.book_id ORDER BY date_borrow DESC";
                     $sql = "SELECT *, students.student_id AS stud, borrow.status AS barstat FROM borrow LEFT JOIN students ON students.id=borrow.student_id LEFT JOIN books ON books.id=borrow.book_id ORDER BY date_borrow DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){

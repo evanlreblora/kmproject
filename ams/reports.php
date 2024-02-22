@@ -85,7 +85,7 @@
                   <!-- <th>ISBN</th> -->
                   <th>Filename</th>
                   <th>Description</th>
-                  <th>Publisher</th>
+                  <th>Encoder</th>
                   <th>Status</th>
                   <th>Action</th>
                 </thead>
@@ -109,16 +109,21 @@
                           <td>".$row['publisher']."</td>
                           <td>".$status."</td>
                           <td>
-                           
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['bookid']."'><i class='fa fa-edit'></i> View</button>
+
+                          <button class='btn btn-success btn-sm view btn-flat' data-id='".$row['bookid']."'><i class='fa fa-eye'></i> View</button>
+                          
+                          
                             
-                          </td>
+                          
+                            </td>
                         </tr>
                       ";
                     }
 
                     
+                    
                   ?>
+                  <!-- <button class='btn btn-info btn-sm download btn-flat' data-id='".$row['bookid']."'><i class='glyphicon glyphicon-download'></i> Download</button> -->
                 </tbody>
               </table>
             </div>
@@ -147,18 +152,36 @@ $(function(){
 
 
 
-  $(document).on('click', '.edit', function(e){
+  $(document).on('click', '.download', function(e){
     e.preventDefault();
-    $('#edit').modal('show');
+    $('#download').modal('show');
     var id = $(this).data('id');
     getRow(id);
   });
 
   $(document).on('click', '.view', function(e){
     e.preventDefault();
-    $('#view').modal('show');
+    // console.log("hello");
+
     var id = $(this).data('id');
     getRow(id);
+    // console.log( id );
+
+    $.ajax({
+      method: "POST",
+      url: "reports_view.php",
+      data: {
+        'view' : true,
+        'id' : id,
+      },
+      success: function (response) {
+        // console.log(response);
+        $('.view_reports_data').html(response)
+        $('#view').modal('show');
+      }
+
+    });
+
   });
 
   $(document).on('click', '.delete', function(e){
@@ -167,7 +190,11 @@ $(function(){
     var id = $(this).data('id');
     getRow(id);
   });
+ 
 });
+
+
+
 
 function getRow(id){
   $.ajax({

@@ -78,10 +78,12 @@
 
                     <div class="col-sm-9">
                     <input type="file" name="fileName2" size="5" style="background-color:#fff;"  />
-
-                    </div>
-                    
+                      </br>
+                    <input class="form-check-input" type="checkbox" id="restricted" name="restricted" value="1">
+                     <label class="form-check-label">Restricted</label>
+                    </div>                   
                 </div>
+                
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
@@ -92,99 +94,7 @@
     </div>
 </div>
 
-<!-- Edit -->
-<div class="modal fade" id="edit">
-    <div class="modal-dialog">
-        <div class="modal-content">
-          	<div class="modal-header">
-            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>View Report</b></h4>
-          	</div>
-          	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="reports_edit.php">
-            		<input type="hidden" class="bookid" name="id">
-                <div class="form-group">
-                    <label for="edit_isbn" class="col-sm-3 control-label">ISBN</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_isbn" name="isbn" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="category" class="col-sm-3 control-label">Category</label>
-
-                    <div class="col-sm-9">
-                      <select class="form-control" name="category" id="category">
-                        <option value="" selected id="catselect"></option>
-                        <?php
-                          $sql = "SELECT * FROM category";
-                          $query = $conn->query($sql);
-                          while($crow = $query->fetch_assoc()){
-                            echo "
-                              <option value='".$crow['id']."'>".$crow['name']."</option>
-                            ";
-                          }
-                        ?>
-                      </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="filename" class="col-sm-3 control-label">Filename</label>
-
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="filename" id="edit_filename"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="edit_author" class="col-sm-3 control-label">Description</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_description" name="description">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Link</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_link" name="link">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="edit_publisher" class="col-sm-3 control-label">Publisher</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_publisher" name="publisher" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="date_uploaded" class="col-sm-3 control-label">Date uploaded</label>
-
-                    <div class="col-sm-9">
-                      <div class="date">
-                        <input type="text" class="form-control" id="date_uploaded" name="date_uploaded" >
-                      </div>
-                    </div>
-                </div>
-                <!-- <div class="form-group">               
-                    <label for="file" class="col-sm-3 control-label">File</label>
-
-                    <div class="col-sm-9">
-                    <input type="file" name="edit_file" id="edit_file" size="5" style="background-color:#fff;" required="required" />
-
-                    </div>
-                    
-                </div> -->
-          	</div>
-          	<div class="modal-footer">
-            	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-            	 
-            	</form>
-          	</div>
-        </div>
-    </div>
-</div>
+ 
 
 <!-- Delete -->
 <div class="modal fade" id="delete">
@@ -200,7 +110,7 @@
             		<input type="hidden" class="bookid" name="id">
             		<div class="text-center">
 	                	<p>DELETE REPORT</p>
-	                	<h2 id="del_book" class="bold"></h2>
+	                	<h2 id="del_report" class="bold"></h2>
 	            	</div>
           	</div>
           	<div class="modal-footer">
@@ -223,77 +133,22 @@
             	<h4 class="modal-title"><b>View Report</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="reports_view.php">
-            		<input type="hidden" class="bookid" name="id">
-                <div class="form-group">
-                    <label for="edit_isbn" class="col-sm-3 control-label">ISBN</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_isbn" name="isbn" disabled>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="category" class="col-sm-3 control-label">Category</label>
-
-                    <div class="col-sm-9">
-                      <select class="form-control" name="category" id="category">
-                        <option value="" selected id="catselect"></option>
-                        <?php
-                          $sql = "SELECT * FROM category";
-                          $query = $conn->query($sql);
-                          while($crow = $query->fetch_assoc()){
-                            echo "
-                              <option value='".$crow['id']."'>".$crow['name']."</option>
-                            ";
-                          }
-                        ?>
-                      </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="filename" class="col-sm-3 control-label">Filename</label>
-
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="filename" id="edit_filename" ></textarea>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="edit_author" class="col-sm-3 control-label">Description</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_description" name="description">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description" class="col-sm-3 control-label">Link</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="link" name="link">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="edit_publisher" class="col-sm-3 control-label">Publisher</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_publisher" name="publisher" >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="date_uploaded" class="col-sm-3 control-label">Date uploaded</label>
-
-                    <div class="col-sm-9">
-                      <div class="date">
-                        <input type="text" class="form-control" id="date_uploaded" name="date_uploaded" >
-                      </div>
-                    </div>
-                </div>
+            <div class = "view_reports_data">
  
+           </div>
+           <form class="form-horizontal" method="POST" action="includes/download.php">
+            		<input type="hidden" class="bookid" name="id">
+            		<div class="text-center">
+	                	
+	            	</div>
           	</div>
           	<div class="modal-footer">
             	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+            	<button type="submit" class="btn btn-success btn-flat" name="download"><i class="glyphicon glyphicon-download"></i> Download</button>
             	</form>
+          
           	</div>
         </div>
     </div>
 </div>
+ 

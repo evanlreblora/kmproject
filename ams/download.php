@@ -35,7 +35,7 @@
                   <th>Date</th>
                   <th>Users ID</th>
                   <th>Name</th>
-                  <th>ISBN</th>
+                  <th>Code</th>
                   <th>Filename</th>
                   <th>Status</th>
                 </thead>

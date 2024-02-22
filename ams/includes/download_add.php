@@ -1,8 +1,8 @@
 <?php
-	include 'includes/session.php';
+	include 'session.php';
 
 	if(isset($_POST['add'])){
-		$student = $_POST['student'];
+		$student = $_POST['user'];
 		
 		$sql = "SELECT * FROM students WHERE student_id = '$student'";
 		$query = $conn->query($sql);
@@ -10,7 +10,7 @@
 			if(!isset($_SESSION['error'])){
 				$_SESSION['error'] = array();
 			}
-			$_SESSION['error'][] = 'User not found';
+			$_SESSION['error'][] = 'user not found';
 		}
 		else{
 			$row = $query->fetch_assoc();
@@ -43,15 +43,15 @@
 						if(!isset($_SESSION['error'])){
 							$_SESSION['error'] = array();
 						}
-						$_SESSION['error'][] = 'Reports with ISBN - '.$isbn.' unavailable';
+						$_SESSION['error'][] = 'Report with ISBN - '.$isbn.' unavailable';
 					}
 		
 				}
 			}
 
 			if($added > 0){
-				$book = ($added == 1) ? 'Report' : 'Reports';
-				$_SESSION['success'] = $added.' '.$book.' successfully Downloaded';
+				$book = ($added == 1) ? 'Book' : 'Books';
+				$_SESSION['success'] = $added.' '.$book.' successfully download';
 			}
 
 		}
@@ -60,6 +60,6 @@
 		$_SESSION['error'] = 'Fill up add form first';
 	}
 
-	header('location: borrow.php');
+	header('location: reports.php');
 
 ?>
