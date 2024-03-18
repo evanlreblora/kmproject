@@ -80,7 +80,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit User</b></h4>
+              <h4 class="modal-title"><b>View User</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="users_edit.php">
@@ -89,21 +89,21 @@
                     <label for="edit_firstname" class="col-sm-3 control-label">Firstname</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_firstname" name="firstname">
+                      <input type="text" class="form-control" id="edit_firstname" name="firstname" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="edit_lastname" class="col-sm-3 control-label">Lastname</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_lastname" name="lastname">
+                      <input type="text" class="form-control" id="edit_lastname" name="lastname" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="course" class="col-sm-3 control-label">Organisation</label>
 
                     <div class="col-sm-9">
-                      <select class="form-control" id="course" name="course" required>
+                      <select class="form-control" id="course" name="course" required disabled>
                         <option value="" selected id="selcourse"></option>
                         <?php
                           $sql = "SELECT * FROM course";
@@ -120,7 +120,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              <!-- <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button> -->
               </form>
             </div>
         </div>

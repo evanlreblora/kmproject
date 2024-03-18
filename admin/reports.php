@@ -57,6 +57,28 @@
           <div class="box">
             <div class="box-header with-border">
               <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+              <div class="box-tools pull-left">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label>Thematic Concern: </label>
+                    <select class="form-control input-sm" id="select_thematic">
+                      <option value="0">ALL</option>
+                      <?php
+                        $sql = "SELECT * FROM thematicconcern";
+                        $query = $conn->query($sql);
+                        while($themrow = $query->fetch_assoc()){
+                          $selected = ($themid == $themrow['id']) ? " selected" : "";
+                          echo "
+                            <option value='".$themrow['id']."' ".$selected.">".$themrow['name']."</option>
+                          ";
+                        }
+                      ?>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              
+              
               <div class="box-tools pull-right">
                 <form class="form-inline">
                   <div class="form-group">
@@ -77,6 +99,7 @@
                   </div>
                 </form>
               </div>
+              
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
@@ -91,7 +114,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id $where";
+                    $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id $where ORDER BY books.date_uploaded DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       if($row['status']){
@@ -141,6 +164,17 @@ $(function(){
     }
     else{
       window.location = 'reports.php?category='+value;
+    }
+  })
+  
+  
+  $('#select_thematic').change(function(){
+    var value = $(this).val();
+    if(value == 0){
+      window.location = 'reports.php';
+    }
+    else{
+      window.location = 'reports.php?thematic='+value;
     }
   });
 
@@ -198,6 +232,7 @@ function getRow(id){
       $('#edit_isbn').val(response.isbn);
       $('#edit_filename').val(response.filename);
       $('#catselect').val(response.category_id).html(response.name);
+      // $('#themselect').val(response.thematic_id).html(response.name);
       $('#edit_description').val(response.description);
       $('#edit_link').val(response.link);
       $('#edit_publisher').val(response.publisher);

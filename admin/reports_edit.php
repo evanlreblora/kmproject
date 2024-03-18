@@ -6,12 +6,13 @@
 		$isbn = $_POST['isbn'];
 		$filename = $_POST['filename'];
 		$category = $_POST['category'];
+		$thematicconcern = $_POST['thematicconcern'];
 		$description = $_POST['description'];
 		$publisher = $_POST['publisher'];
 		$date_uploaded = $_POST['date_uploaded'];
 		$link = $_POST['link'];
 
-		$sql = "UPDATE books SET isbn = '$isbn', category_id = '$category',  filename = '$filename', description = '$description', publisher = '$publisher', date_uploaded = '$date_uploaded', link = '$link' WHERE id = '$id'";
+		$sql = "UPDATE books SET isbn = '$isbn', category_id = '$category', thematicconcern_id = '$thematicconcern', filename = '$filename', description = '$description', publisher = '$publisher', date_uploaded = '$date_uploaded', link = '$link' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Reports updated successfully';
 		}

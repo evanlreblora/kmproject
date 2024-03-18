@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, admin.id AS studid FROM admin LEFT JOIN course ON course.id=admin.organisation_id";
+                    $sql = "SELECT *, admin.id AS studid FROM admin LEFT JOIN course ON course.id=admin.organisation_id where admin.usertype = 'admin'";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       $photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
@@ -123,7 +123,7 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'users_row.php',
+    url: 'admin_user_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){

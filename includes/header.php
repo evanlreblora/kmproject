@@ -29,9 +29,30 @@
   	<!-- Google Font -->
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+	<link rel="stylesheet" type="text/css" href="dist/css/style.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/swiper-bundle.min.css">
   	<style>
   		.dataTables_filter {
 			display: block; 
+		}
+
+		.greenbg {
+			background: #00573c; height: 250px
+		}
+
+		.whitetext {
+			color: white;
+			
+		}
+
+
+		.content-index {
+			min-height: 250px;
+			padding: 10%;
+			margin-right: auto;
+			margin-left: auto;
+			padding-left: 15px;
+			padding-right: 15px
 		}
   	</style>		
 </head>

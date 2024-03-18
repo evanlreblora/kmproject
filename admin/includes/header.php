@@ -72,5 +72,13 @@
         height: 100%;
         border-radius: 5px;
       }
+
+      .pull-left{
+        left: 510px;
+      }
+
+      .pull-right {
+        right: 10px;
+      }
   	</style>
 </head>

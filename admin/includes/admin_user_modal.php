@@ -66,7 +66,7 @@
                           $query = $conn->query($sql);
                           while($row = $query->fetch_array()){
                             echo "
-                              <option value='".$row['id']."'>".$row['levelname']."</option>
+                              <option value='".$row['levelname']."'>".$row['levelname']."</option>
                             ";
                           }
                         ?>
@@ -100,7 +100,7 @@
               <h4 class="modal-title"><b>Edit User</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="users_edit.php">
+              <form class="form-horizontal" method="POST" action="admin_user_edit.php">
                 <input type="hidden" class="studid" name="id">
                 <div class="form-group">
                     <label for="edit_firstname" class="col-sm-3 control-label">Firstname</label>
@@ -154,10 +154,10 @@
               <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="users_delete.php">
+              <form class="form-horizontal" method="POST" action="admin_user_delete.php">
                 <input type="hidden" class="studid" name="id">
                 <div class="text-center">
-                    <p>DELETE User</p>
+                    <p>Delete User</p>
                     <h2 class="del_stu bold"></h2>
                 </div>
             </div>

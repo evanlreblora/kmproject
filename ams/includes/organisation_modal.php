@@ -40,7 +40,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit organisation</b></h4>
+              <h4 class="modal-title"><b>View organisation</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="organisation_edit.php">
@@ -49,20 +49,20 @@
                     <label for="edit_code" class="col-sm-3 control-label">Code</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_code" name="code">
+                      <input type="text" class="form-control" id="edit_code" name="code" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="edit_title" class="col-sm-3 control-label">Title</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_title" name="title">
+                      <input type="text" class="form-control" id="edit_title" name="title" disabled>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              <!-- <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button> -->
               </form>
             </div>
         </div>

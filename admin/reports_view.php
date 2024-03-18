@@ -15,6 +15,7 @@
 				<h4><b>Code:</b> ' .$row['isbn']. '</h4>
 				<h4><b>Filename:</b> ' .$row['filename']. '</h4>
 				<h4><b>Category: </b>' .$row['category_id']. '</h4>
+				<h4><b>Thematic Concern: </b>' .$row['thematicconcern_id']. '</h4>
 
 				<h4><b>Description:</b> ' .$row['description']. '</h4>
 				<h4><b>Publisher:</b> ' .$row['publisher']. '</h4>

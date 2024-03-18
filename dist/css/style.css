@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container{
+    max-width: 1120px;
+    width: 100%;
+    background-color: white;
+    padding: 40px;
+}
+
+.slide-content{
+    margin: 0 40px;
+}
+
+.card{
+    width: 320px;
+    border-radius: 25px;
+    background-color: #fff;
+    border-color: #333;
+    border: 1px solid #000000;
+}
+
+.image-content, .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-content{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.card-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px 25px 0 25px;
+    background-color: #4070F4;
+}
+
+.card-overlay2{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px 25px 0 25px;
+    background-color: #169a47;
+}
+
+.card-overlay::before,
+.card-overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #4070F4;
+
+}
+
+.card-overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+}
+
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+}
+
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070F4;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+.description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #4070F4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background: #265DF2;
+    
+}
+
+.image-content1{
+    align-items: center;
+    /* width: 50%; */
+    display: block;
+    align-items: center;
+    
+    border-radius: 20px;
+    border: 2px solid #696969;
+
+}
+.img-fluid {
+    border-radius: 20px;
+    padding: 8px;
+
+}
+
+ 
+/* .sepacolumn {
+    float: left;
+    padding: 10px;
+  }
+  
+  
+  .sepacolumn.side {
+    width: 25%;
+  }
+  
+ 
+  .sepacolumn.mid-column {
+    width: 50%;
+    border-radius: 20px;
+    border: 2px solid #696969;
+  }
+  
+ 
+  .row-image-content::after {
+    content: "";
+    display: table;
+    clear: both;
+  } */
+
+  /* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+    border-radius: 20px;
+    border: 2px solid #696969;
+  }
+  
+  /* Clear floats after the columns */
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+ 

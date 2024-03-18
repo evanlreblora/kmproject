@@ -34,6 +34,25 @@
                       </select>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="category" class="col-sm-3 control-label">Thematic Concerns</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" name="thematicconcern" id="thematicconcern" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM thematicconcern";
+                          $query = $conn->query($sql);
+                          while($crow = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$crow['id']."'>".$crow['name']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
+                </div>
                 
                 <div class="form-group">
                     <label for="title" class="col-sm-3 control-label">Filename</label>

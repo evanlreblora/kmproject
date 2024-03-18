@@ -19,6 +19,7 @@
 		// $isbn = $_POST['isbn'];
 		$filename = $_POST['filename'];
 		$category = $_POST['category'];
+		$thematicconcern = $_POST['thematicconcern'];
 		$description = $_POST['description'];
 		$link = $_POST['link'];
 		$publisher = $_POST['publisher'];
@@ -54,7 +55,7 @@
 		}
 
 	if (count($errors)==0) {
-		 $sql = "INSERT INTO books (isbn, category_id, filename, description, publisher, file, file_type, link, date_uploaded,status,restricted) VALUES ('$isbn', '$category', '$filename', '$description', '$publisher','$fileName1','$file_type', '$link', '$date_uploaded', '$status', $restricted)";
+		 $sql = "INSERT INTO books (isbn, category_id,thematicconcern_id, filename, description, publisher, file, file_type, link, date_uploaded,status,restricted) VALUES ('$isbn', '$category',  '$thematicconcern', '$filename', '$description', '$publisher','$fileName1','$file_type', '$link', '$date_uploaded', '$status', $restricted)";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Report added successfully';
 		}

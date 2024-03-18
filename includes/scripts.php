@@ -17,6 +17,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 <!-- Active Script -->
+<script src="dist/js/swiper-bundle.min.js"></script>
 <script>
 $(function(){
 	/** add active class and stay opened when selected */
@@ -56,4 +57,39 @@ $(function(){
 	});
 
   })
+
+
+  var swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: 'true',
+    grabCursor: 'true',
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+ 
+  var swiper = new Swiper(".slide-content2", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: 'true',
+    grabCursor: 'true',
+    loopFillGroupWithBlank: true,
+    pagination: {
+      el: ".swiper-pagination2",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next2",
+      prevEl: ".swiper-button-prev2",
+    },
+  });
 </script>
