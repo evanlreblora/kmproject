@@ -410,33 +410,19 @@
 	        		<div class="box">
 	        			<div class="box-header with-border">
 	        				<div class="input-group">
-				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for Title, Category and Thematic Concern">
+				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for Filename, Category and Thematic Concern">
 				                <span class="input-group-btn">
 				                    <button type="button" class="btn btn-primary btn-flat btn-lg"><i class="fa fa-search"></i> </button>
 				                </span>
 				            </div>
 	        			</div>
 	        			<div class="box-body">
-	        				<div class="input-group col-sm-5">
-				                <span class="input-group-addon">Category:</span>
-				                <select class="form-control" id="catlist">
-				                	<option value=0>ALL</option>
-				                	<?php
-				                		$sql = "SELECT * FROM category";
-				                		$query = $conn->query($sql);
-				                		while($catrow = $query->fetch_assoc()){
-				                			$selected = ($catid == $catrow['id']) ? " selected" : "";
-				                			echo "
-				                				<option value='".$catrow['id']."' ".$selected.">".$catrow['name']."</option>
-				                			";
-				                		}
-				                	?>
-				                </select>
-				             </div>
+
 							
 	        				<table class="table table-bordered table-striped" id="booklist">
 			        			<thead>
-			        				<th>Code</th>
+			        				<th>Category</th>
+			        				<th>Thematic Concern</th>
 			        				<th>Filename</th>
 			        				<th>Description</th>
 			        				<th>Status</th>
@@ -446,7 +432,7 @@
  
 			        				// $sql = "SELECT * FROM books WHERE category_id = $catid and restricted = 0 ";
 
-			        				$sql = "SELECT * FROM books $where";
+			        				$sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id LEFT JOIN thematicconcern on thematicconcern.id=books.thematicconcern_id ORDER BY books.date_uploaded DESC";
 			        				$query = $conn->query($sql);
 									
 			        				while($row = $query->fetch_assoc()){
@@ -455,7 +441,8 @@
 										echo "
 			        						<tr>
 			        							
-			        							<td>".$row['isbn']."</td>
+			        							<td>".$row['name']."</td>
+			        							<td>".$row['thematicname']."</td>
 			        							<td>".$row['filename']."</td>
 			        							<td>".$row['description']."</td>
 			        							<td>".$status."</td>
@@ -481,21 +468,6 @@
 <?php include 'includes/scripts.php'; ?>
 <script>
 
-
-setTimeout(function () {
-
-console.log(1);
-
-setTimeout(function () {
-	console.log(2);
-	document.getElementById("jump_to_this_location").scrollIntoView({behavior: 'smooth'});
-},1000);
-
-
-console.log(3);
-
-},0);
-
 $(function(){
 	$('#catlist').on('change', function(){
 		console.log("hello");
@@ -510,7 +482,23 @@ $(function(){
 		
 	});
 });
-console.log(4);
+
+// setTimeout(function () {
+
+// console.log(1);
+
+// setTimeout(function () {
+// 	console.log(2);
+// 	document.getElementById("jump_to_this_location").scrollIntoView({behavior: 'smooth'});
+// },1000);
+
+
+// console.log(3);
+
+// },0);
+
+
+// console.log(4);
 </script>
 </body>
 </html>

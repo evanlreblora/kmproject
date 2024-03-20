@@ -25,7 +25,7 @@
 
 	   </div>
 	   <p class="text-black fs-2" >Knowledge Management</p>
-	   <small class="text-black text-wrap text-center">Kung may Tagline, GO</small>
+	   <p class="text-black text-wrap text-center">Platform</p>
    </div> 
 
 <!-------------------- ------ Right Box ---------------------------->
@@ -33,8 +33,8 @@
    <div class="col-md-6 right-box">
 	  <div class="row align-items-center">
 			<div class="header-text mb-4">
-				 <h2>Hello,Again</h2>
-				 <p>We are happy to have you back.</p>
+				 <h2>Hello!</h2>
+				 <!-- <p>We are happy to have you back.</p> -->
 			</div>
 			<form action="login.php" method="POST">
 				<div class="input-group mb-3">
@@ -59,7 +59,7 @@
 					<button class="btn btn-lg btn-light w-100 fs-6"><img src="../images/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
 				</div> -->
 				<div class="row">
-					<small>Don't have account? <a href="#">Sign Up</a></small>
+					<small>Don't have account? <a href="#">Ask the Administrator</a></small>
 				</div>
 			</form>
 	  </div>

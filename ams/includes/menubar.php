@@ -16,7 +16,7 @@
       <li class="header">REPORTS</li>
       <li class=""><a href="home.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class="header">MANAGE</li>
-      <li class="treeview">
+      <!-- <li class="treeview">
         <a href="#">
           <i class="fa fa-refresh"></i>
           <span>Downloaded</span>
@@ -26,9 +26,9 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="download.php"><i class="fa fa-circle-o"></i> Download Report</a></li>
-          <!-- <li><a href="return.php"><i class="fa fa-circle-o"></i> Return</a></li> -->
+          <li><a href="return.php"><i class="fa fa-circle-o"></i> Return</a></li>
         </ul>
-      </li>
+      </li> -->
       <li class="treeview">
         <a href="#">
           <i class="fa fa-book"></i>
@@ -38,7 +38,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="reports.php"><i class="fa fa-circle-o"></i> Reports List</a></li>
+        <li><a href="reports.php"><i class="fa fa-circle-o"></i> Category List</a></li>
+        <li><a href="thematicconcern.php"><i class="fa fa-circle-o"></i> Thematic Concern</a></li>
           <!-- <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li> -->
         </ul>
       </li>
