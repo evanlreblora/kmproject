@@ -54,5 +54,10 @@
 			padding-left: 15px;
 			padding-right: 15px
 		}
+
+		div.dataTables_wrapper div.dataTables_filter {
+		text-align: right;
+			display: none;
+		}
   	</style>		
 </head>
