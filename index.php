@@ -410,7 +410,7 @@
 	        		<div class="box">
 	        			<div class="box-header with-border">
 	        				<div class="input-group">
-				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for Code, Title">
+				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for Title, Category and Thematic Concern">
 				                <span class="input-group-btn">
 				                    <button type="button" class="btn btn-primary btn-flat btn-lg"><i class="fa fa-search"></i> </button>
 				                </span>
@@ -480,20 +480,37 @@
 
 <?php include 'includes/scripts.php'; ?>
 <script>
+
+
+setTimeout(function () {
+
+console.log(1);
+
+setTimeout(function () {
+	console.log(2);
+	document.getElementById("jump_to_this_location").scrollIntoView({behavior: 'smooth'});
+},1000);
+
+
+console.log(3);
+
+},0);
+
 $(function(){
 	$('#catlist').on('change', function(){
+		console.log("hello");
 		if($(this).val() == 0){
-			window.location = 'index.php';
+			window.location = 'index.php';			
+			
 		}
 		else{
-			document.getElementById("jump_to_this_location").scrollIntoView({behavior: 'smooth'});
-			// window.location = 'index.php?category='+$(this).val();
-			 
-			
+			window.location = 'index.php?category='+$(this).val();
+						
 		}
 		
 	});
 });
+console.log(4);
 </script>
 </body>
 </html>

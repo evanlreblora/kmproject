@@ -1,14 +1,15 @@
 <?php include 'includes/session.php'; ?>
 <?php
-  $catid = 0;
+ 
   $themid = 0;
 
   $where = '';
-  if(isset($_GET['category'])){
-    $catid = $_GET['category'];
-    echo ($_GET['category']);
-    $where = 'WHERE books.category_id = '.$catid;
+  if(isset($_GET['thematicconcern'])){
+    
+    $themid = $_GET['thematicconcern'];
+    $where = 'WHERE books.thematicconcern_id = '.$themid;
   }
+
 
 ?>
 <?php include 'includes/header.php'; ?>
@@ -23,12 +24,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Reports List
+      Thematic Concern
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Reports</li>
-        <li class="active">Report List</li>
+        <li>Thematic Concern</li>
+        <li class="active">List</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -66,16 +67,16 @@
               <div class="box-tools pull-right">
                 <form class="form-inline">
                   <div class="form-group">
-                    <label>Category: </label>
-                    <select class="form-control input-sm" id="select_category">
+                    <label>Thematic Concern:  </label>
+                    <select class="form-control input-sm" id="select_thematic">
                       <option value="0">ALL</option>
                       <?php
-                        $sql = "SELECT * FROM category";
+                        $sql = "SELECT * FROM thematicconcern";
                         $query = $conn->query($sql);
-                        while($catrow = $query->fetch_assoc()){
-                          $selected = ($catid == $catrow['id']) ? " selected" : "";
+                        while($themrow = $query->fetch_assoc()){
+                          $selected = ($themid == $themrow['id']) ? " selected" : "";
                           echo "
-                            <option value='".$catrow['id']."' ".$selected.">".$catrow['name']."</option>
+                            <option value='".$themrow['id']."' ".$selected.">".$themrow['thematicname']."</option>
                           ";
                         }
                       ?>
@@ -88,8 +89,8 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Category</th>
-                  
+           
+                  <th>Thematic</th>
                   <th>Filename</th>
                   <th>Description</th>
                   <!-- <th>Encoder</th> -->
@@ -98,7 +99,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id   $where ORDER BY books.date_uploaded DESC";
+                    $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN thematicconcern on thematicconcern.id=books.thematicconcern_id $where ORDER BY books.date_uploaded DESC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       if($row['status']){
@@ -109,8 +110,8 @@
                       }
                       echo "
                         <tr>
-                          <td>".$row['name']."</td>
-                          
+                       
+                          <td>".$row['thematicname']."</td>
                           <td>".$row['filename']."</td>
                           <td>".$row['description']."</td>
                      
@@ -141,17 +142,21 @@
 <?php include 'includes/scripts.php'; ?>
 <script>
 $(function(){
-  $('#select_category').change(function(){
+ 
+  
+  $('#select_thematic').change(function(){
     var value = $(this).val();
     if(value == 0){
-      window.location = 'reports.php';
+      window.location = 'thematicconcern.php';
     }
     else{
-      window.location = 'reports.php?category='+value;
+      window.location = 'thematicconcern.php?thematicconcern='+value;
     }
-  })
-  
- 
+  });
+
+
+
+
   $(document).on('click', '.edit', function(e){
     e.preventDefault();
     $('#edit').modal('show');
@@ -195,15 +200,15 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'reports_row.php',
+    url: 'them_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
       $('.bookid').val(response.bookid);
       $('#edit_isbn').val(response.isbn);
       $('#edit_filename').val(response.filename);
-      $('#catselect').val(response.category_id).html(response.name);
-      $('#themselect').val(response.thematic_id).html(response.name);
+      // $('#catselect').val(response.category_id).html(response.name);
+      $('#themselect').val(response.thematic_id).html(response.thematicname);
       $('#edit_description').val(response.description);
       $('#edit_link').val(response.link);
       $('#edit_publisher').val(response.publisher);

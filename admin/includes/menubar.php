@@ -38,7 +38,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="reports.php"><i class="fa fa-circle-o"></i> Reports List</a></li>
+          <li><a href="reports.php"><i class="fa fa-circle-o"></i> Category List</a></li>
+          <li><a href="thematicconcern.php"><i class="fa fa-circle-o"></i> Thematic Concern</a></li>
           <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li>
         </ul>
       </li>
